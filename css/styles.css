@@ -1,0 +1,207 @@
+/* Estilo general para el cuerpo y el contenido */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header #site-title {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px; /* Desplaza el título hacia la derecha */
+    font-size: 1.5em; /* Ajusta el tamaño del texto si es necesario */
+}
+
+nav {
+    margin-left: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    flex: 1; /* Asegura que el main ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Centra el contenido verticalmente */
+    text-align: center;
+    padding: 180px; /* Agrega un poco de espacio alrededor del contenido */
+}
+
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 0.5em;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+#map {
+    height: 700px;
+    width: 100%;
+    margin: -145px 0;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 5em; /* Aumenta el relleno del formulario */
+    border: 2px solid #ccc;
+    border-radius: 1em;
+    background-color: #f9f9f9;
+    flex-direction: column; /* Organiza los elementos en una columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+
+form h2 {
+    margin: 0 0 2em 0; /* Añade margen inferior para separar del siguiente elemento */
+    text-align: center; /* Asegura que el texto esté centrado */
+    width: 100%; /* Asegura que el h2 ocupe todo el ancho del contenedor */
+}
+
+form label {
+    margin: 0.5em 0; /* Añade margen arriba y abajo para separar de otros elementos */
+    width: 100%; /* Asegura que las etiquetas ocupen todo el ancho del contenedor */
+    text-align: left; /* Alinea el texto de las etiquetas a la izquierda */
+}
+
+form input {
+    width: 97%;
+    padding: 0.5em;
+    margin-bottom: 2em; /* Añade margen inferior para separar del siguiente elemento */
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+}
+
+form button {
+    margin-top: 2em;
+    padding: 0.5em 2em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    display: block; /* Hace que el botón sea un bloque para poder centrarlo */
+    margin-left: auto; /* Empuja el botón a la derecha */
+    margin-right: auto; /* Empuja el botón a la izquierda */
+}
+
+form button:hover {
+    background-color: #45a049;  
+}
+
+/* Estilo para el mensaje de bienvenida */
+#welcome-message {
+    font-size: 1.5em; /* Tamaño del texto */
+    margin: -90px 0; /* Espacio arriba y abajo del mensaje */
+    width: 100%; /* Abarca todo el renglón */
+}
+
+/* Estilo para el contenedor de imágenes y botones */
+.images-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 140px;
+    margin-bottom: 20px; /* Espacio debajo de las imágenes */
+}
+
+.images img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    margin: 0 10px; /* Espacio entre imágenes */
+}
+
+/* Estilo para los botones */
+.buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: -90px 0
+}
+
+.buttons button {
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    margin: 0 20px; /* Espacio entre botones */
+}
+
+.buttons button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para los botones dentro de las ventanas emergentes del mapa */
+.leaflet-popup-content {
+    text-align: center; /* Centra el texto en la ventana emergente */
+}
+
+.leaflet-popup-content .btn-schedule {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    margin-top: 10px; /* Espacio arriba del botón */
+}
+
+.leaflet-popup-content .btn-schedule:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para los contenedores de citas */
+.appointment {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.appointment-card {
+    padding: 10px;
+}

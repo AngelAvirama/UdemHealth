@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programar Cita - UdemHealth</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" id="site-title">UdemHealth</a>
+        <nav>
+            <ul>
+                <li><a href="map.html">Mapa</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form id="appointment-form">
+            <h2>Programar Cita</h2>
+            <label for="date">Fecha:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <label for="time">Hora:</label>
+            <input type="time" id="time" name="time" required>
+            
+            <label for="disability">Discapacidad:</label>
+            <input type="text" id="disability" name="disability" required>
+            
+            <input type="hidden" id="clinic-name" name="clinic-name">
+
+            <button type="submit">Confirmar Cita</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 UdemHealth</p>
+    </footer>
+    <script src="js/schedule.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa - Plataforma de Salud</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Enlace al archivo de estilos -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"> <!-- Enlace a los estilos de Leaflet -->
+    <style>
+        #map { height: 78vh; } /* Estilo para el contenedor del mapa */
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" id="site-title">UdemHealth</a>
+        <nav>
+            <ul>
+                <li><a href="map.html">Mapa</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="map"></div> <!-- Contenedor del mapa -->
+    </main>
+    <footer>
+        <p>&copy; 2024 UdemHealth</p>
+    </footer>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> <!-- Enlace al script de Leaflet -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var map = L.map('map').setView([0, 0], 15);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var lat = position.coords.latitude;
+                    var lng = position.coords.longitude;
+                    map.setView([lat, lng], 15);
+
+                    // Añade un marcador para la ubicación actual
+                    L.marker([lat, lng]).addTo(map)
+                        .bindPopup('Tu ubicación')
+                        .openPopup();
+
+                    // Mostrar IPS más cercanas
+                    showNearbyIPS(lat, lng);
+                });
+            } else {
+                alert("Geolocalización no es soportada por este navegador.");
+            }
+
+            function showNearbyIPS(lat, lng) {
+                // Aquí defines las IPS más cercanas. Esta es solo una muestra de datos estáticos.
+                const ips = [
+                    { name: "Clinica A", lat: lat + 0.01, lng: lng - 0.01 },
+                    { name: "Clinica B", lat: lat - 0.01, lng: lng + 0.01 },
+                ];
+
+                ips.forEach(ip => {
+                    L.marker([ip.lat, ip.lng]).addTo(map)
+                        .bindPopup(`
+                            <div>
+                                <b>${ip.name}</b><br>
+                                <a href="schedule.html?name=${encodeURIComponent(ip.name)}" class="btn-schedule">Programar cita</a>
+                            </div>
+                        `);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

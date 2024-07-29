@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Plataforma de Salud</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" id="site-title">UdemHealth</a>
+        <nav>
+            <ul>
+                <li><a href="map.html">Mapa</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="welcome-message"></div>
+        <div class="images-buttons">
+            <div class="images">
+                <img src="img/Ips.jpg" alt="Imagen 1">
+                <img src="img/Historial clinico.jpeg" alt="Imagen 2">
+            </div>
+            <div class="buttons">
+                <button onclick="window.location.href='map.html'">Programar Cita</button>
+                <button onclick="window.location.href='history.html'">Historial Clínico</button>
+                <button onclick="window.location.href='pending.html'">Citas pendientes</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 UdemHealth</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = localStorage.getItem('loggedInUser');
+            if (username) {
+                document.getElementById('welcome-message').innerHTML = 
+                    `Bienvenido a UdemHealth, <strong>${username}</strong>. Aquí te proporcionaremos un sistema para programar citas con tus IPS más cercanas y podrás acceder a tu historial clínico.`;
+            }
+        });
+    </script>
+</body>
+</html>
