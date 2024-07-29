@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         appointmentElement.className = 'appointment';
         appointmentElement.innerHTML = `
             <div class="appointment-card">
-                <p><strong>IPS:</strong> ${appointment.ip}</p>
+                <p><strong>IPS:</strong> ${appointment.clinic}</p>
                 <p><strong>Fecha:</strong> ${new Date(appointment.date).toLocaleDateString()}</p>
                 <p><strong>Hora:</strong> ${appointment.time}</p>
                 <p><strong>Discapacidad:</strong> ${appointment.disability}</p>

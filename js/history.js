@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         recordElement.className = 'appointment';
         recordElement.innerHTML = `
             <div class="appointment-card">
-                <p><strong>IPS:</strong> ${record.ip}</p>
+                <p><strong>IPS:</strong> ${record.clinic}</p>
                 <p><strong>Fecha:</strong> ${new Date(record.date).toLocaleDateString()}</p>
                 <p><strong>Hora:</strong> ${record.time}</p>
                 <p><strong>Discapacidad:</strong> ${record.disability}</p>
