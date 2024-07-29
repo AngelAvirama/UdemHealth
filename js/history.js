@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p><strong>Fecha:</strong> ${new Date(record.date).toLocaleDateString()}</p>
                 <p><strong>Hora:</strong> ${record.time}</p>
                 <p><strong>Discapacidad:</strong> ${record.disability}</p>
+                <p><strong>Doctor:</strong> ${record.doctor}</p>
             </div>
         `;
         historyContainer.appendChild(recordElement);

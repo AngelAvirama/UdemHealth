@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p><strong>Fecha:</strong> ${new Date(appointment.date).toLocaleDateString()}</p>
                 <p><strong>Hora:</strong> ${appointment.time}</p>
                 <p><strong>Discapacidad:</strong> ${appointment.disability}</p>
+                <p><strong>Doctor:</strong> ${appointment.doctor}</p>
             </div>
         `;
         appointmentsContainer.appendChild(appointmentElement);
