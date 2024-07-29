@@ -29,35 +29,51 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> <!-- Enlace al script de Leaflet -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var map = L.map('map').setView([0, 0], 15);
+            var map = L.map('map');
+            var userLat, userLng;
 
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
+            function initMap() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        userLat = position.coords.latitude;
+                        userLng = position.coords.longitude;
 
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var lat = position.coords.latitude;
-                    var lng = position.coords.longitude;
-                    map.setView([lat, lng], 15);
+                        // Inicializar el mapa con la ubicación del usuario
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
 
-                    // Añade un marcador para la ubicación actual
-                    L.marker([lat, lng]).addTo(map)
-                        .bindPopup('Tu ubicación')
-                        .openPopup();
+                        // Centrar el mapa en la ubicación del usuario
+                        map.setView([userLat, userLng], 15);
 
-                    // Mostrar IPS más cercanas
-                    showNearbyIPS(lat, lng);
-                });
-            } else {
-                alert("Geolocalización no es soportada por este navegador.");
+                        // Añadir un marcador para la ubicación actual
+                        L.marker([userLat, userLng]).addTo(map)
+                            .bindPopup('Tu ubicación')
+                            .openPopup();
+
+                        // Mostrar IPS más cercanas
+                        showNearbyIPS(userLat, userLng);
+                    }, function() {
+                        alert("No se pudo obtener la ubicación del usuario.");
+                    });
+                } else {
+                    alert("Geolocalización no es soportada por este navegador.");
+                }
             }
 
             function showNearbyIPS(lat, lng) {
-                // Aquí defines las IPS más cercanas. Esta es solo una muestra de datos estáticos.
+                // Aquí defines las IPS más cercanas con posiciones variadas.
                 const ips = [
                     { name: "Clinica A", lat: lat + 0.01, lng: lng - 0.01 },
                     { name: "Clinica B", lat: lat - 0.01, lng: lng + 0.01 },
+                    { name: "Clinica C", lat: lat + 0.03, lng: lng - 0.01 },
+                    { name: "Clinica D", lat: lat - 0.02, lng: lng + 0.03 },
+                    { name: "Clinica E", lat: lat + 0.02, lng: lng + 0.00 },
+                    { name: "Clinica F", lat: lat - 0.01, lng: lng - 0.00 },
+                    { name: "Clinica G", lat: lat + 0.03, lng: lng + 0.02 },
+                    { name: "Clinica H", lat: lat - 0.00, lng: lng + 0.03 },
+                    { name: "Clinica I", lat: lat + 0.01, lng: lng + 0.03 },
+                    { name: "Clinica J", lat: lat - 0.03, lng: lng + 0.01 }
                 ];
 
                 ips.forEach(ip => {
@@ -70,6 +86,8 @@
                         `);
                 });
             }
+
+            initMap();
         });
     </script>
 </body>
