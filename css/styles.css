@@ -222,3 +222,19 @@ form button:hover {
     color: #333; /* Color del texto */
     padding-top: 20px; /* Espaciado adicional en la parte superior */
 }
+
+/* Estilo para el botón de cancelar cita */
+.cancel-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #e74c3c;
+    color: white;
+    margin-top: 10px;
+}
+
+.cancel-button:hover {
+    background-color: #c0392b;
+}

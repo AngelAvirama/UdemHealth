@@ -39,18 +39,41 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.setItem('history', JSON.stringify(history));
 
     // Mostrar citas futuras
-    futureAppointments.forEach(appointment => {
-        const appointmentElement = document.createElement('div');
-        appointmentElement.className = 'appointment';
-        appointmentElement.innerHTML = `
-            <div class="appointment-card">
-                <p><strong>IPS:</strong> ${appointment.clinic}</p>
-                <p><strong>Fecha:</strong> ${new Date(appointment.date).toLocaleDateString()}</p>
-                <p><strong>Hora:</strong> ${appointment.time}</p>
-                <p><strong>Discapacidad:</strong> ${appointment.disability}</p>
-                <p><strong>Doctor:</strong> ${appointment.doctor}</p>
-            </div>
-        `;
-        appointmentsContainer.appendChild(appointmentElement);
-    });
+    function renderAppointments() {
+        appointmentsContainer.innerHTML = '';
+
+        futureAppointments.forEach((appointment, index) => {
+            const appointmentElement = document.createElement('div');
+            appointmentElement.className = 'appointment';
+            appointmentElement.innerHTML = `
+                <div class="appointment-card">
+                    <p><strong>IPS:</strong> ${appointment.clinic}</p>
+                    <p><strong>Fecha:</strong> ${new Date(appointment.date).toLocaleDateString()}</p>
+                    <p><strong>Hora:</strong> ${appointment.time}</p>
+                    <p><strong>Discapacidad:</strong> ${appointment.disability}</p>
+                    <p><strong>Doctor:</strong> ${appointment.doctor}</p>
+                    <button class="cancel-button" data-index="${index}">Cancelar Cita</button>
+                </div>
+            `;
+            appointmentsContainer.appendChild(appointmentElement);
+        });
+
+        document.querySelectorAll('.cancel-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const appointmentIndex = this.getAttribute('data-index');
+                cancelAppointment(appointmentIndex);
+            });
+        });
+    }
+
+    function cancelAppointment(index) {
+        const confirmation = confirm('¿Estás seguro de que deseas cancelar esta cita?');
+        if (confirmation) {
+            futureAppointments.splice(index, 1);
+            localStorage.setItem('appointments', JSON.stringify(futureAppointments));
+            renderAppointments();
+        }
+    }
+
+    renderAppointments();
 });
