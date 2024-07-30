@@ -71,30 +71,30 @@ footer {
 form {
     max-width: 500px;
     margin: 0 auto;
-    padding: 5em; /* Aumenta el relleno del formulario */
+    padding: 5em;
     border: 2px solid #ccc;
     border-radius: 1em;
     background-color: #f9f9f9;
-    flex-direction: column; /* Organiza los elementos en una columna */
-    align-items: center; /* Centra los elementos horizontalmente */
+    flex-direction: column;
+    align-items: center;
 }
 
 form h2 {
-    margin: 0 0 2em 0; /* Añade margen inferior para separar del siguiente elemento */
-    text-align: center; /* Asegura que el texto esté centrado */
-    width: 100%; /* Asegura que el h2 ocupe todo el ancho del contenedor */
+    margin: 0 0 2em 0;
+    text-align: center;
+    width: 100%;
 }
 
 form label {
-    margin: 0.5em 0; /* Añade margen arriba y abajo para separar de otros elementos */
-    width: 100%; /* Asegura que las etiquetas ocupen todo el ancho del contenedor */
-    text-align: left; /* Alinea el texto de las etiquetas a la izquierda */
+    margin: 0.5em 0;
+    width: 100%;
+    text-align: left;
 }
 
 form input {
     width: 97%;
     padding: 0.5em;
-    margin-bottom: 2em; /* Añade margen inferior para separar del siguiente elemento */
+    margin-bottom: 2em;
     border: 1px solid #ccc;
     border-radius: 0.5em;
 }
@@ -108,23 +108,21 @@ form button {
     color: white;
     font-size: 1em;
     cursor: pointer;
-    display: block; /* Hace que el botón sea un bloque para poder centrarlo */
-    margin-left: auto; /* Empuja el botón a la derecha */
-    margin-right: auto; /* Empuja el botón a la izquierda */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 form button:hover {
-    background-color: #45a049;  
+    background-color: #45a049;
 }
 
-/* Estilo para el mensaje de bienvenida */
 #welcome-message {
-    font-size: 1.5em; /* Tamaño del texto */
-    margin: -90px 0; /* Espacio arriba y abajo del mensaje */
-    width: 100%; /* Abarca todo el renglón */
+    font-size: 1.5em;
+    margin: -90px 0;
+    width: 100%;
 }
 
-/* Estilo para el contenedor de imágenes y botones */
 .images-buttons {
     width: 100%;
     display: flex;
@@ -137,22 +135,21 @@ form button:hover {
     justify-content: center;
     width: 100%;
     padding: 140px;
-    margin-bottom: 20px; /* Espacio debajo de las imágenes */
+    margin-bottom: 20px;
 }
 
 .images img {
     width: 400px;
     height: 400px;
     object-fit: cover;
-    margin: 0 10px; /* Espacio entre imágenes */
+    margin: 0 10px;
 }
 
-/* Estilo para los botones */
 .buttons {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: -90px 0
+    margin: -90px 0;
 }
 
 .buttons button {
@@ -163,16 +160,15 @@ form button:hover {
     border-radius: 5px;
     background-color: #4CAF50;
     color: white;
-    margin: 0 20px; /* Espacio entre botones */
+    margin: 0 20px;
 }
 
 .buttons button:hover {
     background-color: #45a049;
 }
 
-/* Estilo para los botones dentro de las ventanas emergentes del mapa */
 .leaflet-popup-content {
-    text-align: center; /* Centra el texto en la ventana emergente */
+    text-align: center;
 }
 
 .leaflet-popup-content .btn-schedule {
@@ -185,14 +181,13 @@ form button:hover {
     background-color: #4CAF50;
     color: white;
     text-decoration: none;
-    margin-top: 10px; /* Espacio arriba del botón */
+    margin-top: 10px;
 }
 
 .leaflet-popup-content .btn-schedule:hover {
     background-color: #45a049;
 }
 
-/* Estilo para los contenedores de citas */
 .appointment {
     border: 1px solid #ddd;
     padding: 10px;
@@ -206,24 +201,23 @@ form button:hover {
 }
 
 .title-appointments {
-    text-align: center; /* Centrar el texto */
-    margin-top: -130px; /* Ajustar el espacio superior */
-    font-size: 2em; /* Tamaño de fuente más grande */
-    font-weight: bold; /* Hacer el texto en negrita */
-    color: #333; /* Color del texto */
-    padding-top: 20px; /* Espaciado adicional en la parte superior */
+    text-align: center;
+    margin-top: -130px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    padding-top: 20px;
 }
 
-.title-history{
-    text-align: center; /* Centrar el texto */
-    margin-top: -130px; /* Ajustar el espacio superior */
-    font-size: 2em; /* Tamaño de fuente más grande */
-    font-weight: bold; /* Hacer el texto en negrita */
-    color: #333; /* Color del texto */
-    padding-top: 20px; /* Espaciado adicional en la parte superior */
+.title-history {
+    text-align: center;
+    margin-top: -130px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    padding-top: 20px;
 }
 
-/* Estilo para el botón de cancelar cita */
 .cancel-button {
     padding: 10px 20px;
     font-size: 1em;
